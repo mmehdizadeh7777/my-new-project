@@ -1,1 +1,2 @@
 https://gist.github.com/javeedsocial/237068d2cca8f1a20f57ea123dc93f88
+https://releases.hashicorp.com/terraform/0.14.9/terraform_0.14.9_linux_amd64.zip
