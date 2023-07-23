@@ -9,3 +9,19 @@ sdemamigmail
 igmail0A@2p64o
 
 https://gist.github.com/2ee1abdd6c2371eef5161bcc6ea4e214.git 
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` &gt;/usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+version: '2'
+services:
+  compose-test:
+    image: centos
+    links:
+      - compose-db
+    command: /usr/bin/curl compose-db:6379
+  compose-db:
+    image: redis
+    expose:
+      - "6379"
