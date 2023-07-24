@@ -1,27 +1,11 @@
-https://gist.github.com/javeedsocial/237068d2cca8f1a20f57ea123dc93f88
-https://releases.hashicorp.com/terraform/0.14.9/terraform_0.14.9_linux_amd64.zip
-https://docs.google.com/document/d/1FLNfojziJ8hqyNGP5s-ZXRhkCv-4YiL5/edit
-ASIATJP3SU2ZDA3CASTM
-depEfnwuBkoBdplzq7d9X2dl31x2FE/6wiwIvO98
-FwoGZXIvYXdzEND//////////wEaDGEktQURGnbjNpzWbSK0AXJikFv2TloBxd7n9GCg+OXD8Kj28IbY/en7IIZV47mXwql2PTwmYvP38VQz5xLLMPl5jME4c9YzqCMOUe52ZxjWhWXX/vgp6JnCLy0O/SORg3auRHlHROjUSjKfwJBbcsXx30gBfLicnLb9mZGpVssEtyJWLLbzkDZPga3KWwxBomjOQ74iENApzSrNYbfkE9+9K+jN2SojIVX4qdmEjtGS3Ts8WEwfFEingXOFgwbUD1KC6ijOgNClBjItVSTkKAOjBSf0taPHvxsLO9EwGNBtoaHIsdvcFCjVdpziD1Dhuzp2TDHxlEU9
-https://docs.google.com/document/d/1kUHCEss1x12FNfbwYxhVTGeQAOOtnP_f/edit?usp=sharing&ouid=106895732756296152641&rtpof=true&sd=true
-sdemamigmail
-igmail0A@2p64o
-
-https://gist.github.com/2ee1abdd6c2371eef5161bcc6ea4e214.git 
-
-sudo curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` &gt;/usr/local/bin/docker-compose
-
-sudo chmod +x /usr/local/bin/docker-compose
-
-version: '2'
-services:
-  compose-test:
-    image: centos
-    links:
-      - compose-db
-    command: /usr/bin/curl compose-db:6379
-  compose-db:
-    image: redis
-    expose:
-      - "6379"
+sudo su
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+sudo echo deb http://apt.kubernetes.io/ kubernetes-xenial main > /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo kubeadm init
+mkdir -p $HOME/.kube
+	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config 
+	sudo chown $(id -u):$(id -g) $HOME/.kube/config
+kubeadm join 172.31.64.38:6443 --token 425qb8.51rbrxc5h862g202 \
+    --discovery-token-ca-cert-hash sha256:a502867d97b05820f186e3ee748afddd9142aae4104aee804d30662148138bae
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 |tr -d '\n')"
