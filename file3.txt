@@ -9,3 +9,31 @@ mkdir -p $HOME/.kube
 kubeadm join 172.31.64.38:6443 --token 425qb8.51rbrxc5h862g202 \
     --discovery-token-ca-cert-hash sha256:a502867d97b05820f186e3ee748afddd9142aae4104aee804d30662148138bae
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 |tr -d '\n')"
+
+
+
+Fork the following repo 
+https://github.com/Siraj-ul-muneera/ELKExample.git
+Use this repo in Jenkins Pipeline as well. 
+git clone <URL_of _repo _you _ just _ forked> 
+cd ELKExample
+ls -alrt
+
+
+
+In the same folder we have a dockerfile. Let us build it:
+
+# docker build -t springboot .
+
+Create a container with your new Image:
+
+# docker run -d -p 81:8080 -v /var/log/:/var/log/  springboot
+
+Check the container is running:
+
+# docker ps -a --latest
+
+GO to browser:
+
+localhost:81
+
